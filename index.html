@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forma Interfaces - UI/UX & Branding Digital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variabel CSS untuk konsistensi warna */
+        :root {
+            --primary: #FFD700; /* Kuning/Emas */
+            --secondary: #2C3E50; /* Biru Tua */
+            --accent: #3498DB; /* Biru */
+            --light: #ECF0F1; /* Abu-abu muda */
+            --dark: #1A252F; /* Biru tua gelap */
+            --text: #333333; /* Teks gelap */
+            --text-light: #7F8C8D; /* Teks abu-abu */
+            --white: #FFFFFF;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset dan Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+            margin: 1rem auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            background-color: #e6c200;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: #1e2a36;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-item {
+            margin-left: 2rem;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--dark) 100%);
+            color: var(--white);
+            padding: 10rem 0 5rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .about-text h2 {
+            color: var(--secondary);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .value-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .value-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .roadmap {
+            margin-top: 3rem;
+        }
+
+        .roadmap-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .roadmap-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary);
+        }
+
+        .roadmap-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% + 1rem);
+            background-color: var(--primary);
+        }
+
+        .roadmap-item:last-child::after {
+            display: none;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            background-color: var(--primary);
+            color: var(--dark);
+            font-size: 2.5rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .service-content {
+            padding: 1.5rem;
+        }
+
+        .clients-segmentation {
+            margin-top: 4rem;
+        }
+
+        .client-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .client-type {
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .client-type h3 {
+            color: var(--secondary);
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background-color: var(--light);
+        }
+
+        .testimonials {
+            margin-bottom: 4rem;
+        }
+
+        .testimonial-slider {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            display: none;
+        }
+
+        .testimonial.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--text-light);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-dot.active {
+            background-color: var(--primary);
+        }
+
+        .portfolio-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .category {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .category-image {
+            height: 200px;
+            background-color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .category-content {
+            padding: 1.5rem;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-member {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .member-image {
+            height: 200px;
+            background-color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--secondary);
+        }
+
+        .member-info {
+            padding: 1.5rem;
+        }
+
+        .member-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .culture {
+            margin-top: 4rem;
+        }
+
+        .culture-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .culture-item {
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .tools {
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .tools-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tool-logo {
+            background-color: var(--white);
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 120px;
+            height: 80px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--secondary);
+            color: var(--white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            text-align: center;
+        }
+
+        .contact-details {
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item i {
+            margin-right: 1rem;
+            color: var(--primary);
+        }
+
+        .contact-form {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            color: var(--text);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            color: var(--dark);
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Media Queries untuk Responsivitas */
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr 1fr;
+                text-align: left;
+            }
+            
+            .footer-links {
+                justify-content: flex-start;
+            }
+            
+            .social-links {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                gap: 0;
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: var(--transition);
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 1rem 0;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Forma<span>Interfaces</span></a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">Tentang Kami</a></li>
+                    <li class="nav-item"><a href="#services" class="nav-link">Layanan</a></li>
+                    <li class="nav-item"><a href="#portfolio" class="nav-link">Portofolio</a></li>
+                    <li class="nav-item"><a href="#team" class="nav-link">Tim & Budaya</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Kontak</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>UI/UX & Branding Digital yang Membuat Bisnis Anda Bersinar</h1>
+                <p>Kami membantu UKM dan startup menciptakan pengalaman digital yang menarik dengan desain yang fungsional, modern, dan berorientasi pada pengguna.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Mulai Proyek Anda</a>
+                    <a href="#portfolio" class="btn btn-secondary">Lihat Portofolio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tentang Forma Interfaces</h2>
+                <p>Mengenal lebih dekat dengan perusahaan kami</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Kami adalah Mitra Strategis untuk Kesuksesan Digital Anda</h2>
+                    <p>Forma Interfaces adalah startup penyedia jasa UI/UX dan branding digital yang bertujuan menciptakan pengalaman pengguna yang intuitif dan meningkatkan konversi bisnis klien.</p>
+                    <p>Kami fokus pada penyediaan solusi desain yang tidak hanya estetis tetapi juga fungsional, modern, dan berorientasi pada kebutuhan pengguna.</p>
+                    
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <i class="fas fa-bullseye"></i>
+                            <h3>Misi Kami</h3>
+                            <p>Memberikan solusi desain fungsional, modern, dan berorientasi pengguna untuk meningkatkan pengalaman digital.</p>
+                        </div>
+                        <div class="value-card">
+                            <i class="fas fa-eye"></i>
+                            <h3>Visi Kami</h3>
+                            <p>Menjadi mitra kreatif terpercaya bagi UKM dan startup dalam transformasi digital mereka.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="roadmap">
+                    <h3>Roadmap Perusahaan</h3>
+                    <div class="roadmap-item">
+                        <h4>Visi Jangka Panjang</h4>
+                        <p>Ekspansi ke pasar internasional dan pengembangan solusi desain berbasis AI.</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <h4>Target Jangka Pendek</h4>
+                        <p>Menjadi penyedia jasa UI/UX terdepan untuk UKM di Indonesia.</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <h4>Fokus Inovasi</h4>
+                        <p>Investasi dalam teknologi AR/VR UI dan peningkatan aksesibilitas desain.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Layanan Kami</h2>
+                <p>Solusi lengkap untuk kebutuhan digital bisnis Anda</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Jasa Desain UI/UX</h3>
+                        <p>Kami membantu menghadirkan pengalaman digital yang menarik melalui desain antarmuka (UI) dan pengalaman pengguna (UX) yang intuitif.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Desain antarmuka pengguna yang menarik</li>
+                            <li><i class="fas fa-check"></i> Pengalaman pengguna yang optimal</li>
+                            <li><i class="fas fa-check"></i> Prototyping dan testing</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Konsultasi & Strategi Desain</h3>
+                        <p>Kami memberikan konsultasi untuk memastikan brand dan produk digital klien relevan dengan target pasar.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Analisis kebutuhan bisnis</li>
+                            <li><i class="fas fa-check"></i> Strategi branding yang efektif</li>
+                            <li><i class="fas fa-check"></i> Roadmap pengembangan produk</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="clients-segmentation">
+                <div class="section-title">
+                    <h2>Siapa Klien Kami?</h2>
+                </div>
+                <div class="client-types">
+                    <div class="client-type">
+                        <i class="fas fa-building fa-2x"></i>
+                        <h3>Perusahaan/Bisnis (B2B)</h3>
+                        <p>Startup, UKM, Perusahaan menengah-besar dengan kebutuhan profesional, rebranding, atau desain produk digital baru.</p>
+                    </div>
+                    <div class="client-type">
+                        <i class="fas fa-user fa-2x"></i>
+                        <h3>Individu/Profesional (B2C)</h3>
+                        <p>Content Creator, Influencer/Personal Brand, Freelancer/Praktisi dengan kebutuhan identitas visual dan portofolio digital.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Portofolio Kami</h2>
+                <p>Hasil karya yang telah kami buat untuk klien</p>
+            </div>
+            
+            <div class="testimonials">
+                <div class="testimonial-slider">
+                    <div class="testimonial active">
+                        <p class="testimonial-text">"Tim Forma Interfaces sangat profesional dan responsif. Mereka berhasil meningkatkan engagement pengguna website kami sebesar 40% setelah redesign UI/UX."</p>
+                        <p class="testimonial-author">- Mamat, CEO Startup Kuliner</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"Proyek rebranding yang dilakukan Forma Interfaces memberikan identitas visual yang kuat untuk bisnis kami. Hasilnya melebihi ekspektasi!"</p>
+                        <p class="testimonial-author">- Budi, Pemilik UKM Fashion</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"Sebagai content creator, saya sangat puas dengan portofolio digital yang dibuat Forma Interfaces. Desainnya modern dan mencerminkan personal brand saya."</p>
+                        <p class="testimonial-author">- Intan, Content Creator</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-text">"Awalnya kami khawatir dengan timeline, tapi tim Forma Interfaces berkomitmen menyelesaikan proyek tepat waktu dengan kualitas terbaik. Mereka terus memperbaiki proses project management."</p>
+                        <p class="testimonial-author">- Marlin, Manajer Proyek Perusahaan Teknologi</p>
+                    </div>
+                    <div class="slider-controls">
+                        <span class="slider-dot active" data-slide="0"></span>
+                        <span class="slider-dot" data-slide="1"></span>
+                        <span class="slider-dot" data-slide="2"></span>
+                        <span class="slider-dot" data-slide="3"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portfolio-categories">
+                <div class="category">
+                    <div class="category-image" style="background-color: #E74C3C;">
+                        UI/UX Web - Kuliner
+                    </div>
+                    <div class="category-content">
+                        <h3>Website Restoran Modern</h3>
+                        <p>Desain antarmuka website untuk restoran dengan fokus pada pengalaman pemesanan online yang mudah dan menarik.</p>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="category-image" style="background-color: #3498DB;">
+                        UI/UX Mobile - Olahraga
+                    </div>
+                    <div class="category-content">
+                        <h3>Aplikasi Fitness Tracking</h3>
+                        <p>Desain pengalaman pengguna untuk aplikasi mobile yang membantu pengguna melacak aktivitas olahraga dan progress fitness.</p>
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="category-image" style="background-color: #2ECC71;">
+                        UI/UX Mobile - Liburan
+                    </div>
+                    <div class="category-content">
+                        <h3>Platform Booking Wisata</h3>
+                        <p>Antarmuka pengguna untuk aplikasi pemesanan paket liburan dengan fokus pada kemudahan navigasi dan proses booking.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team & Culture Section -->
+    <section id="team" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tim & Budaya Kami</h2>
+                <p>Kenali orang-orang di balik kesuksesan Forma Interfaces</p>
+            </div>
+            
+<div class="team-grid">
+    <!-- Project Manager -->
+    <div class="team-member">
+        <div class="member-image">
+            <i class="fas fa-user-tie"></i>
+        </div>
+        <div class="member-info">
+            <h3>William</h3>
+            <p class="member-role">Project Manager</p>
+            <p>Mengelola proyek dari awal hingga akhir dengan fokus pada kualitas dan ketepatan waktu.</p>
+            <div class="member-skills">
+                <span class="skill-tag">Trello</span>
+                <span class="skill-tag">Slack</span>
+                <span class="skill-tag">Timeline Management</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Brand Designer -->
+    <div class="team-member">
+        <div class="member-image">
+            <i class="fas fa-paint-brush"></i>
+        </div>
+        <div class="member-info">
+            <h3>Fatih</h3>
+            <p class="member-role">Brand Designer</p>
+            <p>Menciptakan identitas visual yang kuat dan konsisten untuk berbagai merek.</p>
+            <div class="member-skills">
+                <span class="skill-tag">Adobe Photoshop</span>
+                <span class="skill-tag">Illustrator</span>
+                <span class="skill-tag">Brand Strategy</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- UI/UX Designer -->
+    <div class="team-member">
+        <div class="member-image">
+            <i class="fas fa-laptop-code"></i>
+        </div>
+        <div class="member-info">
+            <h3>Nabil</h3>
+            <p class="member-role">UI/UX Designer</p>
+            <p>Merancang pengalaman pengguna yang intuitif dan antarmuka yang menarik.</p>
+            <div class="member-skills">
+                <span class="skill-tag">Figma</span>
+                <span class="skill-tag">Prototyping</span>
+                <span class="skill-tag">User Research</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Front End Developer -->
+    <div class="team-member">
+        <div class="member-image">
+            <i class="fas fa-code"></i>
+        </div>
+        <div class="member-info">
+            <h3>Ezra</h3>
+            <p class="member-role">Front End Developer</p>
+            <p>Mengimplementasikan desain menjadi website yang responsif dan interaktif.</p>
+            <div class="member-skills">
+                <span class="skill-tag">HTML/CSS</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">React</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back End Developers -->
+    <div class="team-member">
+        <div class="member-image">
+            <i class="fas fa-server"></i>
+        </div>
+        <div class="member-info">
+            <h3>Anne & Evan</h3>
+            <p class="member-role">Back End Developers</p>
+            <p>Membangun sistem server, database, dan API untuk mendukung aplikasi.</p>
+            <div class="member-skills">
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">MySQL</span>
+                <span class="skill-tag">API Development</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Marketing & Client Relations -->
+    <div class="team-member">
+        <div class="member-image">
+            <i class="fas fa-handshake"></i>
+        </div>
+        <div class="member-info">
+            <h3>Azra</h3>
+            <p class="member-role">Marketing & Client Relations</p>
+            <p>Menjaga hubungan dengan klien dan mempromosikan layanan perusahaan.</p>
+            <div class="member-skills">
+                <span class="skill-tag">Client Communication</span>
+                <span class="skill-tag">Digital Marketing</span>
+                <span class="skill-tag">CRM</span>
+            </div>
+        </div>
+    </div>
+</div>
+            
+            <div class="culture">
+                <div class="section-title">
+                    <h2>Budaya Kerja</h2>
+                </div>
+                <div class="culture-content">
+                    <div class="culture-item">
+                        <h3>Kreativitas & Kolaborasi</h3>
+                        <p>Kami mendorong tim untuk berpikir kreatif dan berkolaborasi dalam setiap proyek untuk menghasilkan solusi terbaik.</p>
+                    </div>
+                    <div class="culture-item">
+                        <h3>Lingkungan Kerja Inspiratif</h3>
+                        <p>Kami menyediakan lingkungan kerja hybrid/remote yang fleksibel dengan dukungan alat modern seperti Figma, Adobe Creative Suite, Trello, dan Slack.</p>
+                    </div>
+                    <div class="culture-item">
+                        <h3>Pembelajaran Berkelanjutan</h3>
+                        <p>Kami mengadakan sharing session rutin dan mendorong eksplorasi tren desain terbaru untuk terus berkembang.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tools">
+                <div class="section-title">
+                    <h2>Alat & Teknologi Kami</h2>
+                </div>
+                <div class="tools-logos">
+                    <div class="tool-logo">Canva Pro</div>
+                    <div class="tool-logo">Adobe Photoshop</div>
+                    <div class="tool-logo">Figma</div>
+                    <div class="tool-logo">Trello</div>
+                    <div class="tool-logo">Slack</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ayo Kontak Kami</h2>
+                <p>Pesan sekarang dan dapatkan desain profesional untuk bisnismu!</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Informasi Kontak</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>formainterfaces@hotmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+62 889-4689-7890</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <span>formainterfaces.com</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Mulai Proyek Anda</h3>
+                    <form id="projectForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Nama Lengkap</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company" class="form-label">Perusahaan</label>
+                            <input type="text" id="company" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="service" class="form-label">Layanan yang Diinginkan</label>
+                            <select id="service" class="form-control" required>
+                                <option value="">Pilih Layanan</option>
+                                <option value="uiux">Desain UI/UX</option>
+                                <option value="branding">Konsultasi & Strategi Desain</option>
+                                <option value="both">Kedua Layanan</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Pesan</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Forma<span>Interfaces</span></div>
+                    <p>Mitra strategis untuk solusi UI/UX dan branding digital yang membantu bisnis Anda tumbuh dan berkembang.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Tautan Cepat</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#services">Layanan</a></li>
+                        <li><a href="#portfolio">Portofolio</a></li>
+                        <li><a href="#team">Tim & Budaya</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h4>Ikuti Kami</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Forma Interfaces. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+        
+        // Testimonial Slider
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentSlide = 0;
+        
+        function showSlide(n) {
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = (n + testimonials.length) % testimonials.length;
+            
+            testimonials[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+        
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+        
+        // Auto slide testimonials
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+        
+        // Form Submission
+        const form = document.getElementById('projectForm');
+        
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Simulate form submission
+            alert('Terima kasih! Pesan Anda telah berhasil dikirim. Tim kami akan menghubungi Anda dalam waktu 1x24 jam.');
+            form.reset();
+        });
+        
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Active Navigation Link on Scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
