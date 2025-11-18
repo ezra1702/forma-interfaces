@@ -39,16 +39,41 @@
             showSlide(currentSlide + 1);
         }, 5000);
         
-        // Form Submission
-        const form = document.getElementById('projectForm');
-        
-        form.addEventListener('submit', (e) => {
+        // Kirim ke backend
+        const form = document.getElementById("projectForm");
+
+        form.addEventListener("submit", async (e) => {
             e.preventDefault();
-            
-            // Simulate form submission
-            alert('Terima kasih! Pesan Anda telah berhasil dikirim. Tim kami akan menghubungi Anda dalam waktu 1x24 jam.');
-            form.reset();
+
+            const data = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                company: document.getElementById("company").value,
+                service: document.getElementById("service").value,
+                message: document.getElementById("message").value
+            };
+
+            try {
+                const response = await fetch("/api/send", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert("Pesan berhasil dikirim!");
+                    form.reset();
+                } else {
+                    alert("Gagal: " + result.error);
+                }
+
+            } catch (err) {
+                alert("Server error.");
+            }
         });
+
         
         // Smooth Scrolling for Navigation Links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {

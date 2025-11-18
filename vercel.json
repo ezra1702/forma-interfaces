@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/send.js": {
+      "runtime": "nodejs20.x"
+    }
+  }
+}
