@@ -46,11 +46,11 @@
             e.preventDefault();
 
             const data = {
-                nama: document.getElementById("name").value,
+                nama: document.getElementById("nama_lengkap").value,
                 email: document.getElementById("email").value,
-                company: document.getElementById("company").value,
-                service: document.getElementById("service").value,
-                message: document.getElementById("message").value
+                company: document.getElementById("perusahaan").value,
+                service: document.getElementById("layanan").value,
+                message: document.getElementById("pesan").value
             };
 
             const response = await fetch("https://forma-interfaces.alwaysdata.net/api/submit.php", {
