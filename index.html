@@ -1621,8 +1621,8 @@
                 },
                 body: JSON.stringify(formData)
             });
-
-            // Send ke backend
+            
+              // Send ke backend
             const kirimKeBackend = await fetch(backendURL, {
                 method: 'POST',
                 headers: { 
@@ -1630,7 +1630,7 @@
                 }, // Header khusus PHP
                 body: JSON.stringify(formData)
             });
-            
+
             const result = await response.json();
             
             if (result.status === 'success') {
