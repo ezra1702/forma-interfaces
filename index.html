@@ -1636,13 +1636,23 @@
             
             // URL Web App Google Apps Script
             const scriptURL = 'https://script.google.com/macros/s/AKfycbzkfXUUDMXl2en3qCf--r7SdIP5e38r4UzkSgbF_WWzElumkHdsrFE8Hp4uljDuqMgh3w/exec';
-            
+            const backendURL = 'https://forma-interfaces.alwaysdata.net/api/submit.php';
+
             // Send data to Google Apps Script
             const response = await fetch(scriptURL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'text/plain;charset=utf-8',
                 },
+                body: JSON.stringify(formData)
+            });
+
+            // Send ke backend
+            const kirimKeBackend = await fetch(backendURL, {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json' 
+                }, // Header khusus PHP
                 body: JSON.stringify(formData)
             });
             
